@@ -1,0 +1,142 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "ngx-focus-trap-app": {
+      "root": "projects/ngx-focus-trap-app/",
+      "sourceRoot": "projects/ngx-focus-trap-app/src",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/ngx-focus-trap-app",
+            "index": "projects/ngx-focus-trap-app/src/index.html",
+            "main": "projects/ngx-focus-trap-app/src/main.ts",
+            "polyfills": "projects/ngx-focus-trap-app/src/polyfills.ts",
+            "tsConfig": "projects/ngx-focus-trap-app/tsconfig.app.json",
+            "assets": [
+              "projects/ngx-focus-trap-app/src/favicon.ico",
+              "projects/ngx-focus-trap-app/src/assets"
+            ],
+            "styles": [
+              "projects/ngx-focus-trap-app/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/ngx-focus-trap-app/src/environments/environment.ts",
+                  "with": "projects/ngx-focus-trap-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ngx-focus-trap-app:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ngx-focus-trap-app:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ngx-focus-trap-app:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-focus-trap-app/src/test.ts",
+            "polyfills": "projects/ngx-focus-trap-app/src/polyfills.ts",
+            "tsConfig": "projects/ngx-focus-trap-app/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-focus-trap-app/karma.conf.js",
+            "styles": [
+              "projects/ngx-focus-trap-app/src/styles.css"
+            ],
+            "scripts": [],
+            "assets": [
+              "projects/ngx-focus-trap-app/src/favicon.ico",
+              "projects/ngx-focus-trap-app/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-focus-trap-app/tsconfig.app.json",
+              "projects/ngx-focus-trap-app/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "ngx-focus-trap": {
+      "root": "projects/ngx-focus-trap",
+      "sourceRoot": "projects/ngx-focus-trap/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ngx-focus-trap/tsconfig.lib.json",
+            "project": "projects/ngx-focus-trap/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-focus-trap/src/test.ts",
+            "tsConfig": "projects/ngx-focus-trap/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-focus-trap/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-focus-trap/tsconfig.lib.json",
+              "projects/ngx-focus-trap/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "ngx-focus-trap-app"
+}
