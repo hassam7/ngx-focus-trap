@@ -116,29 +116,35 @@
     Focusable nodes are initially hidden and then revealed within the trap. Use <kbd>Escape</kbd> to exit.
   </p>
   <p>
-    <button id="activate-ht">
+    <button id="activate-ht" (click)="ngxHiddenFeatures.activateFocusTrap()">
       activate trap
     </button>
   </p>
-  <div id="ht" class="trap" tabindex="-1">
+  <div id="ht" class="trap" tabindex="-1"
+    #containerHiddenFeatures
+    [initActivated]="false"
+    ngxFocusTrap
+    #ngxHiddenFeatures="ngxFocusTrap"
+    (activate)="containerHiddenFeatures.className='trap is-active'"
+    (deactivate)="containerHiddenFeatures.className='trap'">
     <p>
       <button>
         nothing
       </button>
     </p>
     <p>
-      <button id="ht-show-more">
+      <button id="ht-show-more" (click)="innerContainer.style.display = 'block'">
         click to show more
       </button>
     </p>
-    <div id="ht-more" style="display:none;">
+    <div id="ht-more" style="display:none;" #innerContainer>
       <p>
         <button>
           nothing again
         </button>
       </p>
       <p>
-        <button id="ht-show-less">
+        <button id="ht-show-less" (click)="innerContainer.style.display = 'none'">
           click to show less
         </button>
       </p>
