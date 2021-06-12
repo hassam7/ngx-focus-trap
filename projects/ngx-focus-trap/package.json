@@ -2,8 +2,13 @@
   "name": "ngx-focus-trap",
   "version": "0.0.10-alpha",
   "description": "Angular library which helps in trapping focus",
-  "keywords" :["Angular","Library", "Focus Trap", "ngx focus trap"],
-  "license" : "SEE LICENSE IN LICENSE",
+  "keywords": [
+    "Angular",
+    "Library",
+    "Focus Trap",
+    "ngx focus trap"
+  ],
+  "license": "SEE LICENSE IN LICENSE",
   "repository": {
     "type": "git",
     "url": "https://github.com/hassam7/ngx-focus-trap"
@@ -14,6 +19,7 @@
     "@angular/core": ">=8.0.0"
   },
   "dependencies": {
-    "focus-trap": "^4.0.2"
+    "focus-trap": "^4.0.2",
+    "tslib": "^2.0.0"
   }
 }
